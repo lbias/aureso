@@ -1,24 +1,23 @@
-# README
+### Setup
+```
+Ruby 2.4.1
+Rails 5.1.3
+bundle install
+rake db:setup
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Tests:
+bundle exec rspec
 
-Things you may want to cover:
+```
 
-* Ruby version
+### Example API Calls
 
-* System dependencies
+```
+rails s
 
-* Configuration
+1) Returns list of an models and models types
+   curl http://localhost:3000/api/v1/models/serie_1/model_types -H 'Authorization: Token token="secret"'
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+2) Updates base_price and returns model_type's data
+   curl -X POST -d "base_price=1000" http://localhost:3000/api/v1/models/serie_1/model_types_price/125i -H 'Authorization: Token token="secret"'
+```
